@@ -12,6 +12,11 @@ function App() {
 					component={Home}
 					exact
 				/>
+				<Route
+					key="searchPage"
+					path="/search/:searchTerm"
+					component={Home}
+				/>
 			</Router>
 		</div>
 	);
