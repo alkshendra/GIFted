@@ -1,0 +1,57 @@
+.searchInputContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	// background-color: #2b1a5a;
+	background-color: #fafafa;
+	background-image: url(https://www.transparenttextures.com/patterns/axiom-pattern.png);
+	.title {
+		width: 100%;
+		max-width: 1200px;
+		margin: 24px 0 32px;
+		font-weight: 900;
+		font-size: 60px;
+		color: #094;
+		text-align: center;
+		transition: font-size 0.2s ease-in-out;
+	}
+	&.minified {
+		min-height: auto;
+		height: 210px;
+		.title {
+			font-size: 32px;
+		}
+	}
+}
+.searchInputWrap {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1200px;
+	justify-content: center;
+	.searchInput {
+		display: block;
+		padding: 12px 16px;
+		font-size: 15px;
+		background-color: #fff;
+		border: 1px solid #bdbdbd;
+		border-radius: 3px;
+		box-shadow: none;
+		transition: border-color .2s ease-in-out;
+	}
+	.searchAct {
+		display: block;
+		padding: 6px 12px;
+		border: 1px solid #28a745;
+		border-radius: 4px;
+		font-size: 14px;
+		font-weight: 700;
+		font-weight: 400;
+		line-height: 1.4;
+		color: #fff;
+		background-color: #28a745;
+		user-select: none;
+		cursor: pointer;
+	}
+}
