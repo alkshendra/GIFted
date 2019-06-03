@@ -1,57 +1,94 @@
 .searchInputContainer {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	min-height: 100vh;
-	// background-color: #2b1a5a;
-	background-color: #fafafa;
+	height: 100vh;
+	background-color: #f1f1f1;
 	background-image: url(https://www.transparenttextures.com/patterns/axiom-pattern.png);
+	transition: height 0.2s ease-in-out;
 	.title {
-		width: 100%;
-		max-width: 1200px;
-		margin: 24px 0 32px;
+		margin: 0 0 48px;
 		font-weight: 900;
 		font-size: 60px;
-		color: #094;
 		text-align: center;
 		transition: font-size 0.2s ease-in-out;
+		a {
+			color: #094;
+		}
 	}
 	&.minifiedView {
-		min-height: auto;
-		height: 210px;
+		height: 180px;
 		.title {
 			font-size: 32px;
+			margin: 0 48px 0 0;
+		}
+		.searchInputWrap {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.searchInput {
+			flex-grow: 1;
+			max-width: 460px;
+			input[type="text"] {
+				padding: 16px;
+				font-size: 15px;
+			}
+			.searchAct {
+				padding: 8px 20px;
+			}
 		}
 	}
 }
 .searchInputWrap {
+	width: 100%;
+	max-width: 1440px;
+	padding: 16px;
+}
+.searchInput {
 	display: flex;
-	flex-wrap: wrap;
-	max-width: 1200px;
 	justify-content: center;
-	.searchInput {
+	align-items: center;
+	input[type="text"] {
 		display: block;
-		padding: 12px 16px;
-		font-size: 15px;
+		width: 100%;
+		max-width: 600px;
+		padding: 22px;
+		font-size: 18px;
+		font-weight: 600;
 		background-color: #fff;
-		border: 1px solid #bdbdbd;
+		border: 1px solid #e0e0e0;
 		border-radius: 3px;
 		box-shadow: none;
 		transition: border-color .2s ease-in-out;
+		outline: none;
+		&:focus {
+			border-color: #28a745;
+			box-shadow: 0 0 0 1px #28a745;
+		}
 	}
 	.searchAct {
-		display: block;
-		padding: 6px 12px;
+		display: flex;
+		align-items: center;
+		padding: 12px 32px;
+		font-size: 16px;
+		line-height: 1;
+		// transform: translateX(-50%);
+		margin: 0 0 0 -71px;
+		font-weight: 600;
+		background-color: #28a745;
+		color: #fff;
 		border: 1px solid #28a745;
 		border-radius: 4px;
-		font-size: 14px;
-		font-weight: 700;
-		font-weight: 400;
-		line-height: 1.4;
-		color: #fff;
-		background-color: #28a745;
 		user-select: none;
 		cursor: pointer;
+		svg {
+			display: block;
+			width: 16px;
+			height: 16px;
+			margin: 0 8px 0 0;
+			fill: #fff;
+			stroke: #fff;
+		}
 	}
 }
