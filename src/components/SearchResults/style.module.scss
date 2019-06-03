@@ -1,32 +1,55 @@
-.searchWrapper {
-	max-width: 1100px;
+.searchResults {
+	max-width: 1600px;
 	margin: auto;
+	padding: 24px 12px;
+	.resultsMessage {
+		margin: 0 0 24px;
+		font-weight: 600;
+		.clearSearch {
+			display: inline-flex;
+			align-items: center;
+			margin: 0 0 0 4px;
+			padding: 6px 12px;
+			font-size: 16px;
+			line-height: 1;
+			font-weight: 600;
+			color: #fff;
+			color: #28a745;
+			background: #eee;
+			border: 1px dashed #28a745;
+			border-radius: 4px;
+			cursor: pointer;
+			svg {
+				width: 16px;
+				height: 16px;
+				margin: 0 0 0 4px;
+				fill: #ccc;
+			}
+			&:hover {
+				svg {
+					fill: #bbb;
+				}
+			}
+		}
+	}
 }
 .postsWrap {
 	display: flex;
-	flex-wrap: wrap;
-	max-width: 1200px;
-	margin: auto;
-	padding: 60px 12px;
+	margin: -8px;
 	.post {
 		position: relative;
-		width: calc(100% / 3 - 24px);
-		height: 220px;
-		margin: 12px;
-		box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
-		border-radius: 4px;
+		min-height: 180px;
+		width: calc(100% - 16px);
+		margin: 8px;
+		padding: 0;
+		border: none;
+		border-radius: 6px;
+		box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.21);
+		overflow: hidden;
 		background-size: contain;
 		background-position: center center;
 		background-repeat: no-repeat;
 		cursor: pointer;
-		&:hover {
-			&:after {
-				background: transparent;
-			}
-			.title {
-				opacity: 0;;
-			}
-		}
 		&:after {
 			content: "";
 			width: 100%;
@@ -34,16 +57,47 @@
 			position: absolute;
 			bottom: 0;
 			left: 0;
-			transition: background 0.25s ease-in-out;
+			transition: opacity 0.25s ease-in-out;
 			background: linear-gradient(rgba(0, 0, 0, 0), rgba(18, 18, 18, 0.6));
 		}
-		.playAct {
+		&:hover {
+			.gifActIcon,
+			.gifActIcon.pause {
+				width: 68px;
+				opacity: 1;
+			}
+		}
+		&.playing {
+			&:after {
+				opacity: 0;
+			}
+			.title {
+				opacity: 0;
+				transform: translateY(100%);
+			}
+			&:hover {
+				&:after {
+					opacity: 1;
+				}
+				.title {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+		}
+
+		.gifActIcon {
 			display: block;
 			position: absolute;
 			left: 50%;
 			top: 50%;
+			width: 60px;
+			opacity: 0.85;
 			transform: translateX(-50%) translateY(-50%);
-			width: 80px;
+			transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out;
+			&.pause {
+				opacity: 0;
+			}
 		}
 		.title {
 			position: absolute;
@@ -57,7 +111,11 @@
 			padding: 16px;
 			width: 100%;
 			opacity: 1;
-			transition: opacity 0.2s ease-in-out;
+			transition: opacity 0.2s ease-in-out, transform 0.1s ease-in-out,;
+		}
+		img {
+			display: block;
+			width: 100%;
 		}
 	}
 }
