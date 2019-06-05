@@ -1,11 +1,6 @@
-.searchInputContainer {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-	background-color: #f1f1f1;
-	background-image: url(https://www.transparenttextures.com/patterns/axiom-pattern.png);
-	transition: height 0.2s ease-in-out;
+.searchInputWrap {
+	width: 100%;
+	max-width: 1440px;
 	.title {
 		margin: 0 0 48px;
 		font-weight: 900;
@@ -17,15 +12,12 @@
 		}
 	}
 	&.minifiedView {
-		height: 180px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		.title {
-			font-size: 32px;
+			font-size: 36px;
 			margin: 0 48px 0 0;
-		}
-		.searchInputWrap {
-			display: flex;
-			align-items: center;
-			justify-content: center;
 		}
 		.searchInput {
 			flex-grow: 1;
@@ -38,12 +30,14 @@
 				padding: 8px 20px;
 			}
 		}
+		@media (max-width: 460px) {
+			flex-wrap: wrap;
+			.title {
+				width: 100%;
+				margin: 0 0 16px;
+			}
+		}
 	}
-}
-.searchInputWrap {
-	width: 100%;
-	max-width: 1440px;
-	padding: 16px;
 }
 .searchInput {
 	display: flex;
@@ -86,9 +80,18 @@
 			display: block;
 			width: 16px;
 			height: 16px;
-			margin: 0 8px 0 0;
 			fill: #fff;
 			stroke: #fff;
+		}
+		.btnLabel {
+			margin: 0 0 0 8px;
+		}
+		@media (max-width: 400px) {
+			padding: 12px 16px;
+			margin: 0 0 0 -27px;
+			.btnLabel {
+				display: none;
+			}
 		}
 	}
 }

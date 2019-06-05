@@ -15,7 +15,6 @@ class SearchInput extends Component {
 
 	handleSearch = e => {
 		e.preventDefault();
-
 		const { searchPhrase } = this.state;
 		if (searchPhrase !== '') {
 			this.props.history.push(`/search/${searchPhrase}`);
@@ -23,35 +22,34 @@ class SearchInput extends Component {
 	}
 
 	render() {
+		const { showMinifiedSearch } = this.props;
 		return (
-			<div className={`${styles.searchInputContainer} ${
-				!!this.props.currentSearchTerm ? styles.minifiedView : ''
+			<div className={`${styles.searchInputWrap} ${
+				showMinifiedSearch ? styles.minifiedView : ''
 			}`}>
-				<div className={styles.searchInputWrap}>
-					<p className={styles.title}>
-						<Link to="/">
-							GIFted
-						</Link>
-					</p>
-					<form
-						className={styles.searchInput}
-						onSubmit={this.handleSearch}
+				<p className={styles.title}>
+					<Link to="/">
+						GIFted
+					</Link>
+				</p>
+				<form
+					className={styles.searchInput}
+					onSubmit={this.handleSearch}
+				>
+					<input
+						onChange={this.handleInputChange}
+						type="text"
+					/>
+					<button
+						className={styles.searchAct}
+						type="submit"
 					>
-						<input
-							onChange={this.handleInputChange}
-							type="text"
-						/>
-						<button
-							className={styles.searchAct}
-							type="submit"
-						>
-							<svg viewBox="0 0 30 30">
-								<path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
-							</svg>
-							<span>Search</span>
-						</button>
-					</form>
-				</div>
+						<svg viewBox="0 0 30 30">
+							<use xlinkHref="/icons.svg#search" />
+						</svg>
+						<span className={styles.btnLabel}>Search</span>
+					</button>
+				</form>
 			</div>
 		);
 	}
