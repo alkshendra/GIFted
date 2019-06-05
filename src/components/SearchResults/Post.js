@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ProgressiveImage from 'react-progressive-image';
 
 // Import styles
+import Loader from 'components/Loader';
+
+// Import styles
 import styles from './style.module.scss';
 
 export default class Post extends Component {
@@ -26,8 +29,12 @@ export default class Post extends Component {
 
 		const getImgLoader = (playing = false) => (
 			playing
-			? <img data-loading={true} src={stillImgUrl} alt="Gif Loading" />
-			: <div data-loading={true} className={styles.imgLoading} />
+			? (
+				<div className={styles.gifLoader} data-loading={true}>
+					<img data-loading={true} src={stillImgUrl} alt="GIF still" />
+					<Loader />
+				</div>
+			) : <div data-loading={true} className={styles.imgLoading} />
 		);
 
 		return (
@@ -46,7 +53,7 @@ export default class Post extends Component {
 					>
 						{loading
 							? getImgLoader(playing)
-							: <img data-loading={loading} src={src} alt="Gif" />
+							: <img data-loading={loading} src={src} alt="GIF playing" />
 						}
 						{playing
 							? (
@@ -63,7 +70,6 @@ export default class Post extends Component {
 					</button>
 				)}
 			</ProgressiveImage>
-
 		)
 	}
 }
