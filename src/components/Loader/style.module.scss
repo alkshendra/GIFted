@@ -1,0 +1,44 @@
+// Loader vars
+$loader-time: 1.4s;
+$item-size: 14px;
+$item-delay: 0s;
+
+.loader {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	height: 10px;
+	width: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-40px);
+}
+@for $i from 1 through 5 {
+	$item-delay: $item-delay + 0.1;
+	.item-#{$i} {
+		float: left;
+		width: $item-size;
+		margin: 0 ($item-size /3);
+		border-radius: $item-size /2;
+		animation: anim $loader-time ease-in-out infinite $item-delay;
+		animation-fill-mode: backwards;
+	}
+}
+@keyframes anim {
+	0%, 15%, 85%, 100% {
+		height: $item-size;
+		background: hsl(0, 0, 100);
+		transform: translateY(0);
+	}
+	30%, 70% {
+		height: $item-size *3;
+	}
+	41%, 59% {
+		height: $item-size;
+		background: #009944;
+		transform: translateY(40px);
+	}
+}
