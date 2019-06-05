@@ -1,14 +1,45 @@
 .searchResults {
+	min-height: calc(100vh - 180px);
 	max-width: 1600px;
 	margin: auto;
 	padding: 24px 12px;
+	&.loading {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.resultsLoading {
+		width: 400px;
+		height: 40px;
+		border-radius: 4px;
+		margin: 60px auto;
+		background: linear-gradient(225deg,red,#d200ff,#0063ff,#00ffc1,#0bff66,#16ff00,#f0ff00,red);
+		background-size: 1600% 1600%;
+		animation: resultsLoading 10s ease infinite;
+	}
+	@keyframes resultsLoading {
+		0%,
+		100% { background-position:0 50% }
+		50% { background-position:100% 50% }
+	}
+	.noResultsFound {
+		min-height: calc(100vh - 220px);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-weight: 600;
+		svg {
+			width: 160px;
+		}
+	}
 	.resultsMessage {
 		margin: 0 0 24px;
 		font-weight: 600;
 		.clearSearch {
 			display: inline-flex;
 			align-items: center;
-			margin: 0 0 0 4px;
+			margin: 8px;
 			padding: 6px 12px;
 			font-size: 16px;
 			line-height: 1;
@@ -67,6 +98,17 @@
 				opacity: 1;
 			}
 		}
+		&.loading {
+			box-shadow: none;
+			&:after,
+			.gifActIcon,
+			.title {
+				visibility: hidden;
+			}
+			&+.loading .imgLoading {
+				animation-delay: 0.5s;
+			}
+		}
 		&.playing {
 			&:after {
 				opacity: 0;
@@ -85,14 +127,13 @@
 				}
 			}
 		}
-
 		.gifActIcon {
 			display: block;
 			position: absolute;
 			left: 50%;
 			top: 50%;
 			width: 60px;
-			opacity: 0.85;
+			opacity: 0.65;
 			transform: translateX(-50%) translateY(-50%);
 			transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out;
 			&.pause {
@@ -103,19 +144,40 @@
 			position: absolute;
 			bottom: 0;
 			left: 0;
-			font-size: 20px;
-			margin: 0;
-			color: #fafafa;
-			font-weight: 600;
-			z-index: 1;
-			padding: 16px;
 			width: 100%;
+			margin: 0;
+			padding: 16px;
+			font-size: 22px;
+			font-weight: 900;
+			text-align: left;
+			letter-spacing: 0.5px;
+			color: #fafafa;
 			opacity: 1;
 			transition: opacity 0.2s ease-in-out, transform 0.1s ease-in-out,;
+			z-index: 1;
 		}
 		img {
 			display: block;
 			width: 100%;
+		}
+		.imgLoading {
+			width: 100%;
+			height: 100%;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: #e0e0e0;
+			animation: loading 2s ease-in-out infinite;
+			@keyframes loading {
+				0%,
+				100% {
+					background: #fafafa;
+				}
+				50% {
+					background: #bdbdbd;
+				}
+			}
 		}
 	}
 }
