@@ -120,7 +120,7 @@ export default class Home extends Component {
 					recentSearchesData.unshift({ searchTerm, searchImg });
 				}
 				
-				if (recentSearchesData.length > 6) { // config.maxRecentSearches) {
+				if (recentSearchesData.length > config.maxRecentSearches) {
 					recentSearchesData.pop();
 				}
 
