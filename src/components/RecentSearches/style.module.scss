@@ -1,0 +1,28 @@
+.recentSearches {
+	max-width: 946px;
+	margin: 32px auto;
+	.recentSearchLabel {
+		font-weight: 600;
+	}
+}
+.recentSearchesWrap {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: -8px;
+	.searchItem {
+		width: calc(100% / 3 - 16px);
+		height: 156px;
+		min-width: 220px;
+		margin: 8px;
+		border-radius: 4px;
+		box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			border-radius: 4px;
+			object-fit: cover;
+		}
+	}
+}

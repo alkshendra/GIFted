@@ -8,6 +8,7 @@ import config from 'config';
 // Import components
 import SearchInput from 'components/SearchInput';
 import SearchResults from 'components/SearchResults';
+import RecentSearches from 'components/RecentSearches';
 
 // Import styles
 import styles from './style.module.scss';
@@ -152,6 +153,7 @@ export default class Home extends Component {
 			<div>
 				<div className={`${styles.searchContainer} ${searchTerm ? styles.minified : ''}`}>
 					<SearchInput showMinifiedSearch={!!searchTerm} />
+					{!searchTerm && <RecentSearches />}
 				</div>
 				{searchTerm &&
 					<SearchResults
