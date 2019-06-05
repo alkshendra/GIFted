@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GIFted
+A front-row seat, to all the best GIFs around Internetown
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+**Dazzling GIFs!**
+The GIFs are searched using GIPHY’s beta API, and are displayed as a neat masonry layout.
 
-### `npm start`
+**Play/Pause GIFs**
+The GIFs can be played/paused with a click.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Recent searches**
+Recent GIF searches are displayed in the homepage, and can be accessed again.
+Maximum number of recent searches that could be displayed can be changed (through a configuration variable).
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+**Locally stored results**
+Search results (URLs) are locally stored in the browser, and are cached (browser cache).
+The locally stored data is cleared after a set period, and this duration can be changed (through a configuration variable).
 
-### `npm test`
+**Infinite scrolling**
+A new set of GIFs are loaded every time the page is scrolled to the end.
+New requests are sent only when all the static images are loaded, there are no pending “play” requests on any GIFs.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+----------
+## Getting Started
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow the commands given below to setup, and run the GIFted codebase on your local machine. 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+    git clone git@github.com:alkshendra/GIFted.git
+    cd GIFted
+    yarn
+    yarn start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If everything above works without any hiccup, you should be able to access the application in your browser, at `localhost:3000` 
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Configuration
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The following configuration parameters (found in `src/config.js`) can be changed, to tweak the application's functionalities.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+| **Parameter**         | **Description**                                                                            |
+| --------------------- | ------------------------------------------------------------------------------------------ |
+| apiUrl                | API URL                                                                                    |
+| apiKey                | API secret key                                                                             |
+| limit                 | Number of posts that should be fetched in a single page                                    |
+| cacheVaildityDuration | Time duration after which the locally saved search results for a term would be invalidated |
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Libraries
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project has been possible thanks to all the wonderful libraries below.
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+| **Library**                                                                                | **Description**                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [create-react-app](https://www.npmjs.com/package/create-react-app)                         | Generating the initial scaffolding of the application                                                                                                                       |
+| [axios](https://www.npmjs.com/package/axios)                                               | Handling API requests                                                                                                                                                       |
+| [localforage](https://www.npmjs.com/package/localforage)                                   | Storing time based search results in user’s machine.<br>localForage stores the results in IndexedDB, WebSQL, or localStorage depending on the user’s browser compatibility. |
+| [react-masonry-css](https://www.npmjs.com/package/react-masonry-css)                       | Displaying posts in a masonry layout                                                                                                                                        |
+| [react-progressive-image](https://www.npmjs.com/package/react-progressive-image)           | Loading the post images in a progressive manner                                                                                                                             |
+| [babel-plugin-module-resolver](https://www.npmjs.com/package/babel-plugin-module-resolver) | Simplifying the import paths in the project                                                                                                                                 |
+| [node-sass](https://www.npmjs.com/package/node-sass)                                       | SASS/SCSS loader (used in webpack)                                                                                                                                          |
+| [react-router-dom](https://www.npmjs.com/package/react-router-dom)                         | Routing in the project                                                                                                                                                      |
