@@ -1,28 +1,36 @@
 # GIFted
+
 A front-row seat, to all the best GIFs around Internetown
 
 ## Features
 
 **Dazzling GIFs!**
+
 The GIFs are searched using GIPHY’s beta API, and are displayed as a neat masonry layout.
 
 **Play/Pause GIFs**
+
 The GIFs can be played/paused with a click.
 
 **Recent searches**
+
 Recent GIF searches are displayed in the homepage, and can be accessed again.
 Maximum number of recent searches that could be displayed can be changed (through a configuration variable).
 
 **Locally stored results**
+
 Search results (URLs) are locally stored in the browser, and are cached (browser cache).
 The locally stored data is cleared after a set period, and this duration can be changed (through a configuration variable).
 
 **Infinite scrolling**
+
 A new set of GIFs are loaded every time the page is scrolled to the end.
 New requests are sent only when all the static images are loaded, there are no pending “play” requests on any GIFs.
 
 
 ----------
+
+
 ## Getting Started
 
 Follow the commands given below to setup, and run the GIFted codebase on your local machine. 
